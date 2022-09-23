@@ -36,6 +36,8 @@
     ]
   },
   "devDependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.16",
     "styled-components": "^5.3.5",

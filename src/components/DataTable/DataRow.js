@@ -1,4 +1,5 @@
 import React from 'react'
+import { context } from './context'
 import DataTable from './DataTable'
 
 /**
@@ -13,6 +14,7 @@ import DataTable from './DataTable'
  * @param {TableRow} params.row
  */
 const DataRow = ({ row }) => {
+  const { deleteRow } = React.useContext(context)
   const { kids, data } = row
   const [showSubtables, setShowSubtables] = React.useState(false)
   const subtables = Object.keys(kids)
@@ -21,12 +23,6 @@ const DataRow = ({ row }) => {
 
   const doToggleSubtables = () => {
     setShowSubtables(value => !value)
-  }
-
-  const doDelete = () => {
-    if (confirm('Are you sure?')) {
-      console.log('ok')
-    }
   }
 
   return (
@@ -48,7 +44,7 @@ const DataRow = ({ row }) => {
         ))}
         <td>
           <button
-            onClick={doDelete}
+            onClick={() => deleteRow('101')}
             className="border border-black py-0.5 px-2.5 rounded-xl"
           >
             delete

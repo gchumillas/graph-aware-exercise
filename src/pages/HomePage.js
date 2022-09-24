@@ -3,11 +3,11 @@ import { useData } from '../store/data'
 import DataTable from '../components/DataTable'
 
 const HomePage = () => {
-  const { rows } = useData()
+  const { rows, deleteRow } = useData()
 
   return (
     <div>
-      <DataTable rows={rows} />
+      <DataTable rows={rows} onDeleteRow={deleteRow} />
     </div>
   )
 }

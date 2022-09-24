@@ -17,20 +17,22 @@ const DataTable = ({ rows }) => {
     const firstDataRow = rows[0]?.data || []
     return Object.keys(firstDataRow)
   }, [JSON.stringify(rows)])
-  console.log(rows)
 
   return (
-    <div
-      className="inline-grid grid-cols-6"
-      style={{
-        gridTemplateColumns: `repeat(${columns.length}, minmax(0, 1fr))`
-      }}
-    >
-      {columns.map((column) => <div key={column}>{column}</div>)}
-      {rows.map(({ data }) => columns.map((column) => (
-        <div key={column}>{data[column]}</div>
-      )))}
-    </div>
+    <table>
+      <thead>
+        <tr>
+          {columns.map((column) => <th key={column}>{column}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map(({ data }, i) => (
+          <tr key={i}>
+            {columns.map((column, i) => <td key={i}>{data[column]}</td>)}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   )
 }
 

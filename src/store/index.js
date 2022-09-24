@@ -1,17 +1,15 @@
 import { createStore } from 'redux'
 
 const initState = {
-  timers: [],
-  chrono: {
-    startFrom: 0,
-    endTo: 0,
-    running: false,
-    started: false
-  }
+  data: []
 }
 
 const reducer = (state = initState, action) => {
-  if (action.type == 'DELETE_ROW') {
+  if (action.type == 'SET_DATA') {
+    return {
+      data: action.payload
+    }
+  } else if (action.type == 'DELETE_ROW') {
     // TODO: missing implementation
     return {
       ...state,

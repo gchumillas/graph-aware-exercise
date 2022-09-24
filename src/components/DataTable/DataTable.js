@@ -1,4 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
+import tw from 'twin.macro'
 import DataRow from './DataRow'
 
 /**
@@ -19,7 +21,7 @@ const DataTable = ({ rows }) => {
   const columnId = columns[0]
 
   return (
-    <table>
+    <StyledTable>
       <thead>
         <tr>
           <th>&nbsp;</th>
@@ -29,8 +31,18 @@ const DataTable = ({ rows }) => {
       <tbody>
         {rows.map((row) => <DataRow key={row.data[columnId]} row={row} />)}
       </tbody>
-    </table>
+    </StyledTable>
   )
 }
+
+const StyledTable = styled.table`
+  th {
+    ${tw`bg-blue-200 text-left`}
+  }
+
+  td, th {
+    ${tw`py-2 px-3`}
+  }
+`
 
 export default DataTable

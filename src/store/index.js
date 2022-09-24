@@ -1,13 +1,13 @@
 import { createStore } from 'redux'
 
 const initState = {
-  data: []
+  rows: []
 }
 
 const reducer = (state = initState, action) => {
   if (action.type == 'SET_DATA') {
     return {
-      data: action.payload
+      rows: action.payload
     }
   } else if (action.type == 'DELETE_ROW') {
     // TODO: missing implementation

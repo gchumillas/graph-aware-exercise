@@ -4,11 +4,11 @@ import { getData } from '../providers/data'
 
 export const useData = () => {
   const dispatch = useDispatch()
-  const data = useSelector((state) => state.data)
+  const rows = useSelector((state) => state.rows)
 
   React.useEffect(() => {
-    getData().then((data) => dispatch({ type: 'SET_DATA', payload: data }))
+    getData().then((rows) => dispatch({ type: 'SET_DATA', payload: rows }))
   }, [])
 
-  return { data }
+  return { rows }
 }

@@ -44,7 +44,7 @@ const DataRow = ({ row }) => {
         ))}
         <td>
           <button
-            onClick={() => deleteRow('101')}
+            onClick={() => deleteRow(data[columnId])}
             className="border border-black py-0.5 px-2.5 rounded-xl"
           >
             delete

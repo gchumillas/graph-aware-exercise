@@ -10,7 +10,6 @@ import React from 'react'
 /**
  * @param {object} params
  * @param {TableRow[]} params.rows
- * @returns
  */
 const DataTable = ({ rows }) => {
   const columns = React.useMemo(() => {
@@ -25,19 +24,37 @@ const DataTable = ({ rows }) => {
     <table>
       <thead>
         <tr>
+          <th>&nbsp;</th>
           {columns.map((column) => <th key={column}>{column}</th>)}
         </tr>
       </thead>
       <tbody>
-        {rows.map(({ data }, i) => (
-          <tr key={data[columnId]}>
-            {columns.map((column, i) => (
-              <td key={`${data[columnId]}_${i}`}>
-                {data[column]}
-              </td>
-            ))}
-          </tr>
-        ))}
+        {rows.map(({ data, kids }, i) => {
+          const subtables = Object.keys(kids)
+
+          return (
+            <React.Fragment key={data[columnId]}>
+              <tr>
+                <td>
+                  <button className="border border-black">toggle</button>
+                </td>
+                {columns.map((column, i) => (
+                  <td key={`${data[columnId]}_${i}`}>
+                    {data[column]}
+                  </td>
+                ))}
+              </tr>
+              {subtables.map((subtable) => (
+                <tr key={subtable}>
+                  <td>&nbsp;</td>
+                  <td colSpan={columns.length + 1}>
+                    <DataTable rows={kids[subtable].records} />
+                  </td>
+                </tr>
+              ))}
+            </React.Fragment>
+          )
+        })}
       </tbody>
     </table>
   )

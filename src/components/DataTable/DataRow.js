@@ -45,6 +45,7 @@ const DataRow = ({ row }) => {
         <tr key={subtable}>
           <td>&nbsp;</td>
           <td colSpan={columns.length + 1}>
+            <h2 className="uppercase">{subtable}</h2>
             <DataTable rows={kids[subtable].records} />
           </td>
         </tr>

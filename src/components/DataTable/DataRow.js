@@ -15,7 +15,7 @@ import DataTable from './DataTable'
 const DataRow = ({ row }) => {
   const { kids, data } = row
   const subtables = Object.keys(kids)
-  const columns = React.useMemo(() => Object.keys(data), [data])
+  const columns = Object.keys(data)
   const columnId = columns[0]
 
   return (

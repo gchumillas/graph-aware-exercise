@@ -13,10 +13,7 @@ import DataRow from './DataRow'
  * @param {TableRow[]} params.rows
  */
 const DataTable = ({ rows }) => {
-  const columns = React.useMemo(() => {
-    const firstDataRow = rows[0]?.data || []
-    return Object.keys(firstDataRow)
-  }, [rows])
+  const columns = Object.keys(rows[0]?.data || [])
 
   // the ID is always the first column
   const columnId = columns[0]

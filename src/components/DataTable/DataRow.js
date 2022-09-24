@@ -14,15 +14,22 @@ import DataTable from './DataTable'
  */
 const DataRow = ({ row }) => {
   const { kids, data } = row
+  const [showSubtables, setShowSubtables] = React.useState(false)
   const subtables = Object.keys(kids)
   const columns = Object.keys(data)
   const columnId = columns[0]
+
+  const doToggleSubtables = () => {
+    setShowSubtables(value => !value)
+  }
 
   return (
     <>
       <tr>
         <td>
-          <button className="border border-black">toggle</button>
+          <button onClick={doToggleSubtables} className="border border-black">
+            toggle
+          </button>
         </td>
         {columns.map((column, i) => (
           <td key={`${data[columnId]}_${i}`}>
@@ -30,7 +37,7 @@ const DataRow = ({ row }) => {
           </td>
         ))}
       </tr>
-      {subtables.map((subtable) => (
+      {showSubtables && subtables.map((subtable) => (
         <tr key={subtable}>
           <td>&nbsp;</td>
           <td colSpan={columns.length + 1}>

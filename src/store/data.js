@@ -5,7 +5,7 @@ import { getData } from '../providers/data'
 export const useData = () => {
   const dispatch = useDispatch()
   const rows = useSelector((state) => state.rows)
-  const deleteRow = ({ id }) => dispatch({
+  const deleteRow = (id) => dispatch({
     type: 'DELETE_ROW',
     payload: { id }
   })

@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { GlobalStyles } from 'twin.macro'
 import './index.css'
-import App from './App'
+// TODO: (all) use absolute paths
+import HomePage from './pages/HomePage'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -12,7 +13,7 @@ root.render(
     <GlobalStyles />
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

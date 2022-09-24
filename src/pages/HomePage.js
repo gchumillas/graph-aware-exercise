@@ -1,9 +1,10 @@
 import React from 'react'
+import DataTable from '../components/DataTable'
 
 const HomePage = () => {
   return (
     <div>
-      Home page!
+      <DataTable />
     </div>
   )
 }

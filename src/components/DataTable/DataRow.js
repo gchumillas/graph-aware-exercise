@@ -27,7 +27,11 @@ const DataRow = ({ row }) => {
     <>
       <tr>
         <td>
-          <button onClick={doToggleSubtables} className="border border-black">
+          <button
+            hidden={subtables.length == 0}
+            onClick={doToggleSubtables}
+            className="border border-black"
+          >
             toggle
           </button>
         </td>

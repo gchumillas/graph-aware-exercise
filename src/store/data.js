@@ -1,7 +1,14 @@
-import { useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { getData } from '../providers/data'
 
 export const useData = () => {
-  const data = useSelector(state => state.data)
+  const dispatch = useDispatch()
+  const rows = useSelector((state) => state.rows)
 
-  return [data]
+  React.useEffect(() => {
+    getData().then((rows) => dispatch({ type: 'SET_DATA', payload: rows }))
+  }, [])
+
+  return { rows }
 }

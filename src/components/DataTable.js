@@ -16,7 +16,10 @@ const DataTable = ({ rows }) => {
   const columns = React.useMemo(() => {
     const firstDataRow = rows[0]?.data || []
     return Object.keys(firstDataRow)
-  }, [JSON.stringify(rows)])
+  }, [rows])
+
+  // the ID is always the first column
+  const columnId = columns[0]
 
   return (
     <table>
@@ -27,8 +30,12 @@ const DataTable = ({ rows }) => {
       </thead>
       <tbody>
         {rows.map(({ data }, i) => (
-          <tr key={i}>
-            {columns.map((column, i) => <td key={i}>{data[column]}</td>)}
+          <tr key={data[columnId]}>
+            {columns.map((column, i) => (
+              <td key={`${data[columnId]}_${i}`}>
+                {data[column]}
+              </td>
+            ))}
           </tr>
         ))}
       </tbody>

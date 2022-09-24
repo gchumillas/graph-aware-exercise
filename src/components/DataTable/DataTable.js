@@ -1,4 +1,5 @@
 import React from 'react'
+import DataRow from './DataRow'
 
 /**
  * @typedef {{
@@ -29,32 +30,7 @@ const DataTable = ({ rows }) => {
         </tr>
       </thead>
       <tbody>
-        {rows.map(({ data, kids }, i) => {
-          const subtables = Object.keys(kids)
-
-          return (
-            <React.Fragment key={data[columnId]}>
-              <tr>
-                <td>
-                  <button className="border border-black">toggle</button>
-                </td>
-                {columns.map((column, i) => (
-                  <td key={`${data[columnId]}_${i}`}>
-                    {data[column]}
-                  </td>
-                ))}
-              </tr>
-              {subtables.map((subtable) => (
-                <tr key={subtable}>
-                  <td>&nbsp;</td>
-                  <td colSpan={columns.length + 1}>
-                    <DataTable rows={kids[subtable].records} />
-                  </td>
-                </tr>
-              ))}
-            </React.Fragment>
-          )
-        })}
+        {rows.map((row) => <DataRow key={row.data[columnId]} row={row} />)}
       </tbody>
     </table>
   )

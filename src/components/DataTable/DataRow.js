@@ -23,6 +23,12 @@ const DataRow = ({ row }) => {
     setShowSubtables(value => !value)
   }
 
+  const doDelete = () => {
+    if (confirm('Are you sure?')) {
+      console.log('ok')
+    }
+  }
+
   return (
     <>
       <tr>
@@ -30,7 +36,7 @@ const DataRow = ({ row }) => {
           <button
             hidden={subtables.length == 0}
             onClick={doToggleSubtables}
-            className="border border-black"
+            className="border border-black py-0.5 px-2.5 rounded-xl"
           >
             toggle
           </button>
@@ -40,6 +46,14 @@ const DataRow = ({ row }) => {
             {data[column]}
           </td>
         ))}
+        <td>
+          <button
+            onClick={doDelete}
+            className="border border-black py-0.5 px-2.5 rounded-xl"
+          >
+            delete
+          </button>
+        </td>
       </tr>
       {showSubtables && subtables.map((subtable) => (
         <tr key={subtable}>

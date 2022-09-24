@@ -26,6 +26,7 @@ const DataTable = ({ rows }) => {
         <tr>
           <th>&nbsp;</th>
           {columns.map((column) => <th key={column}>{column}</th>)}
+          <th>&nbsp;</th>
         </tr>
       </thead>
       <tbody>

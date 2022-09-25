@@ -6,7 +6,7 @@ type Props = {
 
 const PageLayout = ({ children }: Props) => {
   return (
-    <div className="w-full max-w-7xl mx-auto pt-6">
+    <div className="p-6">
       {children}
     </div>
   )

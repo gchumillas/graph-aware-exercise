@@ -1,5 +1,4 @@
 import React from 'react'
-// TODO: (all) use absolute paths
 import { useData } from 'store/data'
 import DataTable from 'components/DataTable'
 

@@ -1,19 +1,13 @@
 import React from 'react'
+import { TableRow } from '../../types'
 import { context } from './context'
 import DataTable from './DataTable'
 
-/**
- * @typedef {{
- *  data: Record<string, string>,
- *  kids: Record<string, TableRow>
- * }} TableRow
- */
+type Props = {
+  row: TableRow
+}
 
-/**
- * @param {object} params
- * @param {TableRow} params.row
- */
-const DataRow = ({ row }) => {
+const DataRow = ({ row }: Props) => {
   const { deleteRow } = React.useContext(context)
   const { kids, data } = row
   const [showSubtables, setShowSubtables] = React.useState(false)
@@ -29,6 +23,7 @@ const DataRow = ({ row }) => {
     <>
       <tr>
         <td>
+          {/* TODO: create a custom button */}
           <button
             hidden={subtables.length == 0}
             onClick={doToggleSubtables}
@@ -55,6 +50,7 @@ const DataRow = ({ row }) => {
         <tr key={subtable}>
           <td>&nbsp;</td>
           <td colSpan={columns.length + 1}>
+            {/* TODO: add a button to delete the complete table */}
             <h2 className="uppercase">{subtable}</h2>
             <DataTable rows={kids[subtable].records} />
           </td>

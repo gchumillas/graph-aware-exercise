@@ -33,7 +33,7 @@ const Row = ({ row }: Props) => {
             {data[column]}
           </td>
         ))}
-        <td>
+        <td className="text-right">
           <Button onClick={() => deleteRow(data[columnId])}>
             delete
           </Button>
@@ -41,8 +41,8 @@ const Row = ({ row }: Props) => {
       </tr>
       {showSubtables && subtables.map((subtable) => (
         <tr key={subtable}>
-          <td>&nbsp;</td>
-          <td colSpan={columns.length + 1}>
+          <td style={{ padding: 0 }}>&nbsp;</td>
+          <td colSpan={columns.length + 1} style={{ padding: 0 }}>
             {/* TODO: add a button to delete the complete table */}
             <h2 className="uppercase">{subtable}</h2>
             <Table rows={kids[subtable].records} />

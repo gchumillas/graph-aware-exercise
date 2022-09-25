@@ -30,6 +30,8 @@ const Table = ({ rows }: Props) => {
 }
 
 const StyledTable = styled.table`
+  ${tw`w-full`}
+
   th {
     ${tw`bg-blue-200 text-left`}
   }

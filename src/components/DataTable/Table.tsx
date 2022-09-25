@@ -41,7 +41,7 @@ const StyledTable = styled.table`
   ${tw`w-full`}
 
   th {
-    ${tw`bg-blue-200 text-left`}
+    ${tw`bg-gray-100 border-t border-b border-gray-300 text-left`}
   }
 
   td, th {

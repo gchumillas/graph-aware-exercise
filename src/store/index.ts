@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 import { TableRow } from '../types'
-import { State } from './types'
+import { State, Action } from './types'
 
 const deleteRow = (rows: TableRow[], rowId: string) => {
   const removeRow = (rows: TableRow[], rowId: string) => {
@@ -32,7 +32,7 @@ const initState: State = {
   rows: []
 }
 
-const reducer = (state = initState, action: { type: string, payload: any }) => {
+const reducer = (state = initState, action: Action) => {
   if (action.type == 'SET_DATA') {
     return {
       rows: action.payload

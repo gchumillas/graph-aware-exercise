@@ -23,7 +23,6 @@ const DataTableContainer = ({ rows, onDeleteRow }) => {
   return (
     <context.Provider value={contextValue}>
       <DataTable rows={rows} />
-      xxx
     </context.Provider>
   )
 }

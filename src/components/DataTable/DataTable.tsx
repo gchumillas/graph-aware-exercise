@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
-import { TableRow } from '../../types'
+import { TableRow } from 'types'
 import DataRow from './DataRow'
 
 type Props = {

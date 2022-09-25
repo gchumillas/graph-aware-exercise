@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { TableRow } from '../types'
+import { TableRow } from 'types'
+import { getData } from 'providers/data'
 import { State } from './types'
-import { getData } from '../providers/data'
 
 export const useData = () => {
   const dispatch = useDispatch()

@@ -3,10 +3,9 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { GlobalStyles } from 'twin.macro'
 import store from './store'
-import './index.css'
-// TODO: (all) use absolute paths
 import HomePage from './pages/HomePage'
 import reportWebVitals from './reportWebVitals'
+import './index.css'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

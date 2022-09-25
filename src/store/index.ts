@@ -18,7 +18,7 @@ const deleteRow = (rows: TableRow[], rowId: string) => {
       kids: Object.fromEntries(Object
         .entries(row.kids)
         .map(([name, { records }]): [string, { records: TableRow[] }] => {
-          return [name, { records: removeRow(records, rowId) }]
+          return [name, { records: deleteRow(records, rowId) }]
         })
         .filter(([_, { records }]) => {
           return records.length > 0

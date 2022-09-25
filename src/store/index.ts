@@ -3,16 +3,15 @@ import { TableRow } from 'global-types'
 import { State, Action } from './types'
 
 const deleteRow = (rows: TableRow[], rowId: string) => {
-  const removeRow = (rows: TableRow[], rowId: string) => {
-    return rows.filter((row) => {
-      const columns = Object.keys(row.data)
-      const idColumn = columns[0]
+  const items = rows.filter((row) => {
+    const columns = Object.keys(row.data)
+    // the first column is always the Column ID
+    const idColumn = columns[0]
 
-      return row.data[idColumn] != rowId
-    })
-  }
+    return row.data[idColumn] != rowId
+  })
 
-  return removeRow(rows, rowId).map(row => {
+  return items.map(row => {
     return {
       ...row,
       kids: Object.fromEntries(Object

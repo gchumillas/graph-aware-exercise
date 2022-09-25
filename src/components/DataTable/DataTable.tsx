@@ -1,4 +1,3 @@
-// TODO: rename DataTableContainer to DataTable and DataTable, DataRow to Table, Row respectively
 import React from 'react'
 import { context } from './context'
 import { TableRow } from 'types'

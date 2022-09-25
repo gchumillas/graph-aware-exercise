@@ -8,7 +8,7 @@ const HomePage = () => {
 
   return (
     <PageLayout>
-      <DataTable title="DATA-1.JSON" rows={rows} onDeleteRow={deleteRow} />
+      <DataTable rows={rows} onDeleteRow={deleteRow} />
     </PageLayout>
   )
 }

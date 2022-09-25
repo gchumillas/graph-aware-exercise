@@ -4,7 +4,7 @@ import { TableRow } from 'global-types'
 import Row from './Row'
 
 type Props = {
-  title: string
+  title?: string
   rows: TableRow[]
 }
 
@@ -16,9 +16,11 @@ const Table = ({ title, rows }: Props) => {
 
   return (
     <>
-      <h2 className="uppercase py-2">
-        {title}
-      </h2>
+      {title && (
+        <h2 className="uppercase py-2">
+          {title}
+        </h2>
+      )}
       <StyledTable>
         <thead>
           <tr>

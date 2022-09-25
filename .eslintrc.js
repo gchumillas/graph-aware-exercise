@@ -25,7 +25,7 @@ module.exports = {
     'react',
     '@typescript-eslint'
   ],
-  'ignorePatterns': ['*.config.js'],
+  'ignorePatterns': ['.eslintrc.js', '*.config.js'],
   'rules': {
     'max-len': ['error', { 'code': 80, 'ignorePattern': 'TODO:' }],
     'eqeqeq': 'off',
@@ -36,6 +36,7 @@ module.exports = {
     'quote-props': ['error', 'consistent'],
     'linebreak-style': ['error', 'unix'],
     'eol-last': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-wrap-multilines': ['error', { return: 'parens-new-line' }],

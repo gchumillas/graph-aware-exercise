@@ -1,14 +1,9 @@
 import React from 'react'
 import { context } from './context'
-import { TableRow } from 'types'
+import { DataTableProps } from './types'
 import Table from './Table'
 
-type Props = {
-  rows: TableRow[]
-  onDeleteRow: (id: string) => void
-}
-
-const DataTable = ({ rows, onDeleteRow }: Props) => {
+const DataTable = ({ rows, onDeleteRow }: DataTableProps) => {
   const contextValue = React.useMemo(() => ({
     deleteRow: onDeleteRow
   }), [onDeleteRow])

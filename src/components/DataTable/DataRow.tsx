@@ -1,5 +1,6 @@
 import React from 'react'
 import { TableRow } from '../../types'
+import Button from '../Button'
 import { context } from './context'
 import DataTable from './DataTable'
 
@@ -23,14 +24,9 @@ const DataRow = ({ row }: Props) => {
     <>
       <tr>
         <td>
-          {/* TODO: create a custom button */}
-          <button
-            hidden={subtables.length == 0}
-            onClick={doToggleSubtables}
-            className="border border-black py-0.5 px-2.5 rounded-xl"
-          >
+          <Button hidden={subtables.length == 0} onClick={doToggleSubtables}>
             toggle
-          </button>
+          </Button>
         </td>
         {columns.map((column, i) => (
           <td key={`${data[columnId]}_${i}`}>
@@ -38,12 +34,9 @@ const DataRow = ({ row }: Props) => {
           </td>
         ))}
         <td>
-          <button
-            onClick={() => deleteRow(data[columnId])}
-            className="border border-black py-0.5 px-2.5 rounded-xl"
-          >
+          <Button onClick={() => deleteRow(data[columnId])}>
             delete
-          </button>
+          </Button>
         </td>
       </tr>
       {showSubtables && subtables.map((subtable) => (

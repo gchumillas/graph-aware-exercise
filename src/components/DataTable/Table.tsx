@@ -6,9 +6,10 @@ import Row from './Row'
 type Props = {
   title?: string
   rows: TableRow[]
+  className?: string
 }
 
-const Table = ({ title, rows }: Props) => {
+const Table = ({ title, rows, className }: Props) => {
   const columns = Object.keys(rows[0]?.data || [])
 
   // the ID is always the first column
@@ -21,7 +22,7 @@ const Table = ({ title, rows }: Props) => {
           {title}
         </h2>
       )}
-      <StyledTable>
+      <StyledTable className={className}>
         <thead>
           <tr>
             <th>&nbsp;</th>
@@ -38,8 +39,6 @@ const Table = ({ title, rows }: Props) => {
 }
 
 const StyledTable = styled.table`
-  ${tw`w-full`}
-
   th {
     ${tw`bg-gray-100 border-t border-b border-gray-300 text-left`}
   }

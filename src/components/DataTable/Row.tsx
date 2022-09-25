@@ -48,7 +48,6 @@ const Row = ({ row }: Props) => {
             colSpan={columns.length + 1}
             style={{ padding: 0 }}
           >
-            {/* TODO: add a button to delete the complete table */}
             <Table
               title={subtable}
               rows={kids[subtable].records}

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import tw from 'twin.macro'
-import { TableRow } from 'types'
+import { TableRow } from 'global-types'
 import Row from './Row'
 
 type Props = {

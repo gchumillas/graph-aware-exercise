@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { TableRow } from 'types'
+import { TableRow } from 'global-types'
 import { getData } from 'providers/data'
 import { State } from './types'
 

@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
-import { TableRow } from 'types'
+import { TableRow } from 'global-types'
 import { State, Action } from './types'
 
 const deleteRow = (rows: TableRow[], rowId: string) => {

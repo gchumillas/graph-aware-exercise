@@ -1,5 +1,5 @@
 import React from 'react'
-import { TableRow } from 'types'
+import { TableRow } from 'global-types'
 import Button from 'components/Button'
 import { context } from './context'
 import Table from './Table'

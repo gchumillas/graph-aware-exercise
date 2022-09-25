@@ -10,7 +10,9 @@ module.exports = {
   },
   'extends': [
     'standard',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended'
   ],
   'overrides': [
   ],
@@ -18,10 +20,12 @@ module.exports = {
     'ecmaVersion': 'latest',
     'sourceType': 'module'
   },
+  'parser': '@typescript-eslint/parser',
   'plugins': [
-    'react'
+    'react',
+    '@typescript-eslint'
   ],
-  'ignorePatterns': ['*.config.js'],
+  'ignorePatterns': ['.eslintrc.js', '*.config.js'],
   'rules': {
     'max-len': ['error', { 'code': 80, 'ignorePattern': 'TODO:' }],
     'eqeqeq': 'off',
@@ -32,7 +36,9 @@ module.exports = {
     'quote-props': ['error', 'consistent'],
     'linebreak-style': ['error', 'unix'],
     'eol-last': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
     'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-wrap-multilines': ['error', { return: 'parens-new-line' }],
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],

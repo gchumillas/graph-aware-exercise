@@ -2,7 +2,7 @@ import React from 'react'
 import { TableRow } from 'types'
 import Button from 'components/Button'
 import { context } from './context'
-import DataTable from './DataTable'
+import DataTable from './Table'
 
 type Props = {
   row: TableRow

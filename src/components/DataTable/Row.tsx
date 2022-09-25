@@ -49,8 +49,7 @@ const Row = ({ row }: Props) => {
             style={{ padding: 0 }}
           >
             {/* TODO: add a button to delete the complete table */}
-            <h2 className="uppercase py-2">{subtable}</h2>
-            <Table rows={kids[subtable].records} />
+            <Table title={subtable} rows={kids[subtable].records} />
           </td>
         </tr>
       ))}

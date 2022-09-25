@@ -3,14 +3,14 @@ import { context } from './context'
 import { DataTableProps } from './types'
 import Table from './Table'
 
-const DataTable = ({ rows, onDeleteRow }: DataTableProps) => {
+const DataTable = ({ title, rows, onDeleteRow }: DataTableProps) => {
   const contextValue = React.useMemo(() => ({
     deleteRow: onDeleteRow
   }), [onDeleteRow])
 
   return (
     <context.Provider value={contextValue}>
-      <Table rows={rows} />
+      <Table title={title} rows={rows} />
     </context.Provider>
   )
 }

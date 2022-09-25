@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { TableRow } from 'global-types'
-import { getData } from 'providers/data'
+import { getRows } from 'providers/data'
 import { State } from './types'
 
 export const useData = () => {
@@ -13,7 +13,7 @@ export const useData = () => {
   })
 
   React.useEffect(() => {
-    getData().then((rows) => dispatch({ type: 'SET_DATA', payload: rows }))
+    getRows().then((rows) => dispatch({ type: 'SET_DATA', payload: rows }))
   }, [])
 
   return { rows, deleteRow }

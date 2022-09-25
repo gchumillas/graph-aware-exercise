@@ -1,5 +1,42 @@
 import { createStore } from 'redux'
 
+/**
+ * @typedef {{
+ *  data: Record<string, string>,
+ *  kids: Record<string, { records: TableRow[] }>
+ * }} TableRow
+ */
+
+/**
+ * @param {TableRow[]} rows
+ * @param {string} rowId
+ */
+const deleteRow = (rows, rowId) => {
+  const removeRow = (rows, rowId) => {
+    return rows.filter((row) => {
+      const columns = Object.keys(row.data)
+      const idColumn = columns[0]
+
+      return row.data[idColumn] != rowId
+    })
+  }
+
+  return removeRow(rows, rowId).map(row => {
+    return {
+      ...row,
+      kids: Object.fromEntries(Object
+        .entries(row.kids)
+        .map(([name, { records }]) => {
+          return [name, { records: removeRow(records, rowId) }]
+        })
+        .filter(([_, { records }]) => {
+          return records.length > 0
+        })
+      )
+    }
+  })
+}
+
 const initState = {
   rows: []
 }
@@ -10,16 +47,10 @@ const reducer = (state = initState, action) => {
       rows: action.payload
     }
   } else if (action.type == 'DELETE_ROW') {
-    // TODO: missing implementation
+    const { id } = action.payload
+
     return {
-      ...state,
-      timers: action.payload
-    }
-  } else if (action.type == 'DELETE_TABLE') {
-    // TODO: missing implementation
-    return {
-      ...state,
-      timers: action.payload
+      rows: deleteRow(state.rows, id)
     }
   }
 

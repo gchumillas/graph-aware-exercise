@@ -22,7 +22,7 @@ module.exports = {
     'react'
   ],
   'rules': {
-    'max-len': ['error', { 'code': 80 }],
+    'max-len': ['error', { 'code': 80, 'ignorePattern': 'TODO:' }],
     'eqeqeq': 'off',
     'semi': ['error', 'never'],
     'quotes': ['error', 'single'],

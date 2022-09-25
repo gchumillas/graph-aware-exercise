@@ -1,10 +1,4 @@
-import React from 'react'
-
-export type ButtonProps = {
-  hidden?: boolean
-  onClick: () => void
-  children: React.ReactNode
-}
+import { ButtonProps } from './types'
 
 const Button = ({ hidden, onClick, children }: ButtonProps) => {
   return (

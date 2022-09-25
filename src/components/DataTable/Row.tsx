@@ -1,4 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
+import tw from 'twin.macro'
 import { TableRow } from 'global-types'
 import Button from 'components/Button'
 import { context } from './context'
@@ -40,17 +42,23 @@ const Row = ({ row }: Props) => {
         </td>
       </tr>
       {showSubtables && subtables.map((subtable) => (
-        <tr key={subtable}>
-          <td style={{ padding: 0 }}>&nbsp;</td>
-          <td colSpan={columns.length + 1} style={{ padding: 0 }}>
+        <StyledTr key={subtable}>
+          <td>&nbsp;</td>
+          <td colSpan={columns.length + 1}>
             {/* TODO: add a button to delete the complete table */}
             <h2 className="uppercase">{subtable}</h2>
             <Table rows={kids[subtable].records} />
           </td>
-        </tr>
+        </StyledTr>
       ))}
     </>
   )
 }
+
+const StyledTr = styled.tr`
+  td {
+    ${tw`px-0`}
+  }
+`
 
 export default Row

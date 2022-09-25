@@ -25,10 +25,11 @@ yarn start
 ## Application structure
 
 ```
-components/ -- list of reusable components
-layouts/    -- common app layouts (PageLayout, DialogLayout, etc.)
-libs/       -- common libraries
-pages/      -- app pages
-providers/  -- list of "end-point" functions
-store/      -- redux store and hooks to access the store
+src/
+  components/ -- list of reusable components
+  layouts/    -- common app layouts (PageLayout, DialogLayout, etc.)
+  libs/       -- common libraries
+  pages/      -- app pages
+  providers/  -- list of "end-point" functions
+  store/      -- redux store and hooks to access the store
 ```

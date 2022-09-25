@@ -1,12 +1,12 @@
 import React from 'react'
 
-type PageLayoutProps = {
+type Props = {
   children: React.ReactNode
 }
 
-const PageLayout = ({ children }: PageLayoutProps) => {
+const PageLayout = ({ children }: Props) => {
   return (
-    <div>
+    <div className="w-full max-w-7xl mx-auto pt-6">
       {children}
     </div>
   )

@@ -1,21 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
+import { TableRow } from '../../types'
 import DataRow from './DataRow'
 
-/**
- * @typedef {{
- *  data: Record<string, string>,
- *  kids: Record<string, TableRow>
- * }} TableRow
- */
+type Props = {
+  rows: TableRow[]
+}
 
-/**
- * @param {object} params
- * @param {TableRow[]} params.rows
- * @param {(id: string) => void} params.onDeleteRow
- */
-const DataTable = ({ rows }) => {
+const DataTable = ({ rows }: Props) => {
   const columns = Object.keys(rows[0]?.data || [])
 
   // the ID is always the first column

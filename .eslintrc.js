@@ -21,6 +21,7 @@ module.exports = {
   'plugins': [
     'react'
   ],
+  'ignorePatterns': ['*.config.js'],
   'rules': {
     'max-len': ['error', { 'code': 80, 'ignorePattern': 'TODO:' }],
     'eqeqeq': 'off',

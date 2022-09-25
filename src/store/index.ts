@@ -1,18 +1,9 @@
 import { createStore } from 'redux'
+import { TableRow } from '../types'
+import { State } from './types'
 
-/**
- * @typedef {{
- *  data: Record<string, string>,
- *  kids: Record<string, { records: TableRow[] }>
- * }} TableRow
- */
-
-/**
- * @param {TableRow[]} rows
- * @param {string} rowId
- */
-const deleteRow = (rows, rowId) => {
-  const removeRow = (rows, rowId) => {
+const deleteRow = (rows: TableRow[], rowId: string) => {
+  const removeRow = (rows: TableRow[], rowId: string) => {
     return rows.filter((row) => {
       const columns = Object.keys(row.data)
       const idColumn = columns[0]
@@ -26,7 +17,7 @@ const deleteRow = (rows, rowId) => {
       ...row,
       kids: Object.fromEntries(Object
         .entries(row.kids)
-        .map(([name, { records }]) => {
+        .map(([name, { records }]): [string, { records: TableRow[] }] => {
           return [name, { records: removeRow(records, rowId) }]
         })
         .filter(([_, { records }]) => {
@@ -37,11 +28,11 @@ const deleteRow = (rows, rowId) => {
   })
 }
 
-const initState = {
+const initState: State = {
   rows: []
 }
 
-const reducer = (state = initState, action) => {
+const reducer = (state = initState, action: { type: string, payload: any }) => {
   if (action.type == 'SET_DATA') {
     return {
       rows: action.payload

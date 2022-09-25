@@ -4,10 +4,7 @@ import { ButtonProps } from './types'
 
 const Button = ({ hidden, onClick, children }: ButtonProps) => {
   return (
-    <StyledButton
-      hidden={hidden}
-      onClick={onClick}
-    >
+    <StyledButton hidden={hidden} onClick={onClick}>
       {children}
     </StyledButton>
   )

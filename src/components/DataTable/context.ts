@@ -1,7 +1,11 @@
 import React from 'react'
 
-export const context = React.createContext<{
-  deleteRow: (id: string) => void
-}>({
-  deleteRow: (id) => {}
+type Props = {
+  deleteRow:(id: string) => void
+}
+
+export const context = React.createContext<Props>({
+  deleteRow: () => {
+    // unimplemented
+  }
 })

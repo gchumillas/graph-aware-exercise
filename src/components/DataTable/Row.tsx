@@ -2,13 +2,13 @@ import React from 'react'
 import { TableRow } from 'types'
 import Button from 'components/Button'
 import { context } from './context'
-import DataTable from './Table'
+import Table from './Table'
 
 type Props = {
   row: TableRow
 }
 
-const DataRow = ({ row }: Props) => {
+const Row = ({ row }: Props) => {
   const { deleteRow } = React.useContext(context)
   const { kids, data } = row
   const [showSubtables, setShowSubtables] = React.useState(false)
@@ -45,7 +45,7 @@ const DataRow = ({ row }: Props) => {
           <td colSpan={columns.length + 1}>
             {/* TODO: add a button to delete the complete table */}
             <h2 className="uppercase">{subtable}</h2>
-            <DataTable rows={kids[subtable].records} />
+            <Table rows={kids[subtable].records} />
           </td>
         </tr>
       ))}
@@ -53,4 +53,4 @@ const DataRow = ({ row }: Props) => {
   )
 }
 
-export default DataRow
+export default Row

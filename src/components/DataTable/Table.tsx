@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 import { TableRow } from 'types'
-import DataRow from './Row'
+import Row from './Row'
 
 type Props = {
   rows: TableRow[]
 }
 
-const DataTable = ({ rows }: Props) => {
+const Table = ({ rows }: Props) => {
   const columns = Object.keys(rows[0]?.data || [])
 
   // the ID is always the first column
@@ -24,7 +24,7 @@ const DataTable = ({ rows }: Props) => {
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => <DataRow key={row.data[columnId]} row={row} />)}
+        {rows.map((row) => <Row key={row.data[columnId]} row={row} />)}
       </tbody>
     </StyledTable>
   )
@@ -40,4 +40,4 @@ const StyledTable = styled.table`
   }
 `
 
-export default DataTable
+export default Table

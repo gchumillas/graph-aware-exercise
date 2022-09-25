@@ -7,7 +7,6 @@ const Button = ({ hidden, onClick, children }: ButtonProps) => {
     <StyledButton
       hidden={hidden}
       onClick={onClick}
-      className=""
     >
       {children}
     </StyledButton>
